@@ -4,19 +4,20 @@
 ## PHP环境部署
 
 ```bash
-wget https://github.com/wanyunr/tinyfilemanager/archive/refs/heads/master.zip  # 下载文件到网站根目录
-unzip master.zip #解压文件
-mv tinyfilemanager-master/* .
+wget https://github.com/wanyunr/tinyfilemanager/archive/refs/heads/dev.zip  # 下载文件到网站根目录
+unzip dev.zip #解压文件
+mv tinyfilemanager-dev/* .
+rm -r tinyfilemanager-dev && rm dev.zip #删除多余文件
 ```
 
 ## Docker部署
 
 ```
 #下载文件
-wget https://github.com/wanyunr/tinyfilemanager/archive/refs/heads/master.zip
+wget https://github.com/wanyunr/tinyfilemanager/archive/refs/heads/dev.zip
 #解压
-unzip tinyfilemanager-master
-cd tinyfilemanager-master
+unzip dev.zip
+cd tinyfilemanager-dev
 # 根据需要修改index.php的内容
 #构建镜像，以2.5.3为例（注意后面有个点）
 docker build -t tinyfilemanager:2.5.3 . 
