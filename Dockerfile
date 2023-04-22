@@ -21,4 +21,4 @@ RUN docker-php-ext-install \
 
 WORKDIR /var/www/html
 
-CMD ["sh", "-c", "php -S 0.0.0.0:80"]
+CMD ["sh", "-c", "php -S 0.0.0.0:3380"]
