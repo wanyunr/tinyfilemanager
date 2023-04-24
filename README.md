@@ -5,10 +5,10 @@
 
 ```bash
 wget https://gitee.com/wanyunr/tinyfilemanager/repository/archive/main.zip  # 下载文件到网站根目录
-unzip dev.zip #解压文件
-mv tinyfilemanager-dev/* .
-mv tinyfilemanager.php index.php
-rm -r tinyfilemanager-dev && rm dev.zip #删除多余文件
+unzip main.zip #解压文件
+mv tinyfilemanager-main/* .  #移出文件到根目录
+mv tinyfilemanager.php index.php  #重命名文件
+rm -r tinyfilemanager-main && rm dev.zip #删除多余文件
 ```
 
 ## Docker部署
@@ -17,8 +17,8 @@ rm -r tinyfilemanager-dev && rm dev.zip #删除多余文件
 #下载文件
 wget https://gitee.com/wanyunr/tinyfilemanager/repository/archive/main.zip
 #解压
-unzip dev.zip
-cd tinyfilemanager-dev
+unzip main.zip
+cd tinyfilemanager-main
 # 根据需要修改 tinyfilemanager.php 的内容
 # 构建镜像，以2.5.3为例（注意后面有个点）
 docker build -t tinyfilemanager:2.5.3 . 
