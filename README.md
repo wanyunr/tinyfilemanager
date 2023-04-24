@@ -7,6 +7,7 @@
 wget https://github.com/wanyunr/tinyfilemanager/archive/refs/heads/dev.zip  # 下载文件到网站根目录
 unzip dev.zip #解压文件
 mv tinyfilemanager-dev/* .
+mv tinyfilemanager.php index.php
 rm -r tinyfilemanager-dev && rm dev.zip #删除多余文件
 ```
 
@@ -18,8 +19,7 @@ wget https://github.com/wanyunr/tinyfilemanager/archive/refs/heads/dev.zip
 #解压
 unzip dev.zip
 cd tinyfilemanager-dev
-mv index.php tinyfilemanager.php
-# 根据需要修改index.php的内容
+# 根据需要修改 tinyfilemanager.php 的内容
 # 构建镜像，以2.5.3为例（注意后面有个点）
 docker build -t tinyfilemanager:2.5.3 . 
 #运行镜像
