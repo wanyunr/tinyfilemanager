@@ -13,7 +13,7 @@ rm -r tinyfilemanager-dev && rm dev.zip #删除多余文件
 
 ## Docker部署
 
-```
+```bash
 #下载文件
 wget https://gitee.com/wanyunr/tinyfilemanager/repository/archive/main.zip
 #解压
