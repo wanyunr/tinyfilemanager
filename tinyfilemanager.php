@@ -77,6 +77,12 @@ $iconv_input_encoding = 'UTF-8';
 // Doc - https://www.php.net/manual/en/function.date.php
 $datetime_format = 'Y/m/d/ g:i A';
 
+// Path display mode when viewing file information
+// 'full' => show full path
+// 'relative' => show path relative to root_path
+// 'host' => show path on the host
+$path_display_mode = 'full';
+
 // Allowed file extensions for create and rename files
 // e.g. 'txt,html,css,js'
 $allowed_file_extensions = '';
@@ -237,7 +243,7 @@ if (defined('FM_EMBED')) {
     restore_error_handler();
 }
 
-//Genrating CSRF Token
+//Generating CSRF Token
 if (empty($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
@@ -322,11 +328,11 @@ if ($use_auth) {
             if (isset($auth_users[$_POST['fm_usr']]) && isset($_POST['fm_pwd']) && password_verify($_POST['fm_pwd'], $auth_users[$_POST['fm_usr']]) && verifyToken($_POST['token'])) {
                 $_SESSION[FM_SESSION_ID]['logged'] = $_POST['fm_usr'];
                 fm_set_msg(lng('You are logged in'));
-                fm_redirect(FM_ROOT_URL);
+                fm_redirect(FM_SELF_URL);
             } else {
                 unset($_SESSION[FM_SESSION_ID]['logged']);
                 fm_set_msg(lng('Login failed. Invalid username or password'), 'error');
-                fm_redirect(FM_ROOT_URL);
+                fm_redirect(FM_SELF_URL);
             }
         } else {
             fm_set_msg(lng('password_hash not supported, Upgrade PHP version'), 'error');;
@@ -1684,7 +1690,8 @@ if (isset($_GET['view'])) {
         <div class="col-12">
             <p class="break-word"><b><?php echo lng($view_title) ?> "<?php echo fm_enc(fm_convert_win($file)) ?>"</b></p>
             <p class="break-word">
-                <strong>Full path:</strong> <?php echo fm_enc(fm_convert_win($file_path)) ?><br>
+                <?php $display_path = fm_get_display_path($file_path); ?>
+                <strong><?php echo $display_path['label']; ?>:</strong> <?php echo $display_path['path']; ?><br>
                 <strong>File size:</strong> <?php echo ($filesize_raw <= 1000) ? "$filesize_raw bytes" : $filesize; ?><br>
                 <strong>MIME-type:</strong> <?php echo $mime_type ?><br>
                 <?php
@@ -1943,7 +1950,8 @@ if (isset($_GET['chmod']) && !FM_READONLY && !FM_IS_WIN) {
             </h6>
             <div class="card-body">
                 <p class="card-text">
-                    Full path: <?php echo $file_path ?><br>
+                    <?php $display_path = fm_get_display_path($file_path); ?>
+                    <?php echo $display_path['label']; ?>: <?php echo $display_path['path']; ?><br>
                 </p>
                 <form action="" method="post">
                     <input type="hidden" name="p" value="<?php echo fm_enc(FM_PATH) ?>">
@@ -2512,6 +2520,30 @@ function fm_get_parent_path($path)
         return '';
     }
     return false;
+}
+
+function fm_get_display_path($file_path)
+{
+    global $path_display_mode, $root_path, $root_url;
+    switch ($path_display_mode) {
+        case 'relative':
+            return array(
+                'label' => 'Path',
+                'path' => fm_enc(fm_convert_win(str_replace($root_path, '', $file_path)))
+            );
+        case 'host':
+            $relative_path = str_replace($root_path, '', $file_path);
+            return array(
+                'label' => 'Host Path',
+                'path' => fm_enc(fm_convert_win('/' . $root_url . '/' . ltrim(str_replace('\\', '/', $relative_path), '/')))
+            );
+        case 'full':
+        default:
+            return array(
+                'label' => 'Full Path',
+                'path' => fm_enc(fm_convert_win($file_path))
+            );
+    }
 }
 
 /**
