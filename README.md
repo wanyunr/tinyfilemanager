@@ -29,7 +29,7 @@ docker run -d -v /absolute/path:/var/www/html/data -p 3380:3380 --restart=always
 
 ## 修改内容
 
-- 修改CDN源为Bootcdn等
+- 修改CDN源为 Bootcdn
 - 隐藏`index.php`和`translation.json`文件
 - 推荐可用的在线PHP密码生成器
 
