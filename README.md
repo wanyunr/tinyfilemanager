@@ -11,7 +11,32 @@ mv tinyfilemanager.php index.php  #重命名文件
 rm -r tinyfilemanager-main && rm dev.zip #删除多余文件
 ```
 
-## Docker部署
+## Docker 部署
+
+```bash
+docker run -d \
+    -v /absolute/path:/var/www/html/data \
+    -p 3380:3380 --restart=always \
+    --name tinyfilemanager-2.5.3 \
+ ccr.ccs.tencentyun.com/txre/tinyfilemanager:tag-v2.5.3
+```
+
+#### 如何在Docker中更改配置
+
+下载 `tinyfilemanager.php`并更名为`index.php`，根据需要更改配置，并在命令中添加一个新卷，如下所示：`-v /absolute/path/index.php:/var/www/html/index.php`
+
+ ```bash
+docker run -d \
+    -v /absolute/path:/var/www/html/data \
+    -v /absolute/path/index.php:/var/www/html/index.php \
+    -p 3380:3380 \
+    --restart=always \
+    --name tinyfilemanager \
+ccr.ccs.tencentyun.com/txre/tinyfilemanager:tag-v2.5.3
+ ```
+更多配置请参考 [Tiny File Manager Wiki](https://github.com/prasathmani/tinyfilemanager/wiki/Config-Flags)
+
+### 构建自己镜像
 
 ```bash
 #下载文件
