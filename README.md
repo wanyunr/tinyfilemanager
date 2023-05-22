@@ -8,7 +8,7 @@ wget https://gitee.com/wanyunr/tinyfilemanager/repository/archive/main.zip  # �
 unzip main.zip #解压文件
 mv tinyfilemanager-main/* .  #移出文件到根目录
 mv tinyfilemanager.php index.php  #重命名文件
-rm -r tinyfilemanager-main && rm dev.zip #删除多余文件
+rm -r tinyfilemanager-main && rm main.zip #删除多余文件
 ```
 
 ## Docker 部署
