@@ -4,7 +4,7 @@
 ## PHP环境部署
 
 ```bash
-wget https://gitee.com/wanyunr/tinyfilemanager/repository/archive/main.zip  # 下载文件到网站根目录
+wget https://github.com/wanyunr/tinyfilemanager/archive/refs/heads/dev.zip  # 下载文件到网站根目录
 unzip main.zip #解压文件
 mv tinyfilemanager-main/* .  #移出文件到根目录
 mv tinyfilemanager.php index.php  #重命名文件
