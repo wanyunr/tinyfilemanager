@@ -75,7 +75,7 @@ $iconv_input_encoding = 'UTF-8';
 
 // date() format for file modification date
 // Doc - https://www.php.net/manual/en/function.date.php
-$datetime_format = 'Y/m/d/ g:i A';
+$datetime_format = 'Y/m/d/ H:i:s';
 
 // Path display mode when viewing file information
 // 'full' => show full path
@@ -245,7 +245,11 @@ if (defined('FM_EMBED')) {
 
 //Generating CSRF Token
 if (empty($_SESSION['token'])) {
-    $_SESSION['token'] = bin2hex(random_bytes(32));
+    if (function_exists('random_bytes')) {
+        $_SESSION['token'] = bin2hex(random_bytes(32));
+    } else {
+    	$_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32));
+    }
 }
 
 if (empty($auth_users)) {
