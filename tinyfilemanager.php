@@ -75,7 +75,7 @@ $iconv_input_encoding = 'UTF-8';
 
 // date() format for file modification date
 // Doc - https://www.php.net/manual/en/function.date.php
-$datetime_format = 'Y/m/d/ g:i A';
+$datetime_format = 'Y/m/d/ H:i:s';
 
 // Path display mode when viewing file information
 // 'full' => show full path
