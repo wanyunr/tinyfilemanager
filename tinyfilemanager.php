@@ -98,7 +98,7 @@ $favicon_path = '';
 
 // Files and folders to excluded from listing
 // e.g. array('myfile.html', 'personal-folder', '*.php', ...)
-$exclude_items = array('index.php','translation.json','favicon.ico');
+$exclude_items = array('translation.json');
 
 // Online office Docs Viewer
 // Availabe rules are 'google', 'microsoft' or false
