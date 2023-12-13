@@ -151,18 +151,17 @@ if (is_readable($config_file)) {
 
 // External CDN resources that can be used in the HTML (replace for GDPR compliance)
 $external = array(
-    'css-bootstrap' => '<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">',
-    'css-dropzone' => '<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css" rel="stylesheet">',
-    'css-font-awesome' => '<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">',
-    'css-highlightjs' => '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/' . $highlightjs_style . '.min.css">',
-    'js-ace' => '<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.13.1/ace.js"></script>',
-    'js-bootstrap' => '<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>',
-    'js-dropzone' => '<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>',
-    'js-jquery' => '<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js" crossorigin="anonymous"></script>',
+    'css-bootstrap' => '<link href="https://lib.baomitu.com/twitter-bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">',
+    'css-dropzone' => '<link href="https://lib.baomitu.com/dropzone/5.9.3/min/dropzone.min.css" rel="stylesheet">',
+    'css-font-awesome' => '<link rel="stylesheet" href="https://lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">',
+    'css-highlightjs' => '<link rel="stylesheet" href="https://lib.baomitu.com/highlight.js/11.6.0/styles/' . $highlightjs_style . '.min.css">',
+    'js-ace' => '<script src="https://lib.baomitu.com/ace/1.13.1/ace.js"></script>',
+    'js-bootstrap' => '<script src="https://lib.baomitu.com/bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>',
+    'js-dropzone' => '<script src="https://lib.baomitu.com/dropzone/5.9.3/min/dropzone.min.js"></script>',
+    'js-jquery' => '<script src="https://lib.baomitu.com/jquery/3.6.1/jquery.min.js" integrity="sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous"></script>',
     'js-jquery-datatables' => '<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" crossorigin="anonymous" defer></script>',
-    'js-highlightjs' => '<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>',
-    'pre-jsdelivr' => '<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"/>',
-    'pre-cloudflare' => '<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin/><link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>'
+    'js-highlightjs' => '<script src="https://lib.baomitu.com/highlight.js/11.6.0/highlight.min.js"></script>',
+    'pre-baomitu' => '<link rel="preconnect" href="https://lib.baomitu.com" crossorigin/><link rel="dns-prefetch" href="https://lib.baomitu.com"/>',
 );
 
 // --- EDIT BELOW CAREFULLY OR DO NOT EDIT AT ALL ---
