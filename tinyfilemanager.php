@@ -158,8 +158,8 @@ $external = array(
     'js-ace' => '<script src="https://lib.baomitu.com/ace/1.13.1/ace.js"></script>',
     'js-bootstrap' => '<script src="https://lib.baomitu.com/bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>',
     'js-dropzone' => '<script src="https://lib.baomitu.com/dropzone/5.9.3/min/dropzone.min.js"></script>',
-    'js-jquery' => '<script src="https://lib.baomitu.com/jquery/3.6.1/jquery.min.js" integrity="sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous"></script>',
-    'js-jquery-datatables' => '<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js" crossorigin="anonymous" defer></script>',
+    'js-jquery' => '<script src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>',
+    'js-jquery-datatables' => '<script src="https://lib.baomitu.com/datatables.net/2.1.1/jquery.dataTables.js" crossorigin="anonymous" defer></script>',
     'js-highlightjs' => '<script src="https://lib.baomitu.com/highlight.js/11.6.0/highlight.min.js"></script>',
     'pre-baomitu' => '<link rel="preconnect" href="https://lib.baomitu.com" crossorigin/><link rel="dns-prefetch" href="https://lib.baomitu.com"/>',
 );
