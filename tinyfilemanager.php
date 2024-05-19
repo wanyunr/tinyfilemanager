@@ -151,14 +151,14 @@ if (is_readable($config_file)) {
 
 // External CDN resources that can be used in the HTML (replace for GDPR compliance)
 $external = array(
-    'css-bootstrap' => '<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet">',
+    'css-bootstrap' => '<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">',
     'css-dropzone' => '<link href="https://cdn.bootcdn.net/ajax/libs/dropzone/5.9.3/dropzone.min.css" rel="stylesheet">',
     'css-font-awesome' => '<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">',
     'css-highlightjs' => '<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.6.0/styles/' . $highlightjs_style . '.min.css">',
     'js-ace' => '<script src="https://cdn.bootcdn.net/ajax/libs/ace/1.13.1/ace.js"></script>',
-    'js-bootstrap' => '<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.2/js/bootstrap.bundle.min.js"></script>',
+    'js-bootstrap' => '<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>',
     'js-dropzone' => '<script src="https://cdn.bootcdn.net/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>',
-    'js-jquery' => '<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>',
+    'js-jquery' => '<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>',
     'js-jquery-datatables' => '<script src="https://cdn.bootcdn.net/ajax/libs/datatables/1.10.21/js/jquery.dataTables.js" crossorigin="anonymous" defer></script>',
     'js-highlightjs' => '<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>',
     'pre-bootcdn' => '<link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin/><link rel="dns-prefetch" href="https://cdn.bootcdn.net"/>',
