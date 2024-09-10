@@ -54,6 +54,6 @@ docker run -d -v /absolute/path:/var/www/html/data -p 3380:3380 --restart=always
 
 ## 修改内容
 
-- 修改CDN为 [BootCDN](https://www.bootcdn.cn/)
+- 修改CDN为 [字节跳动静态资源公共库](https://cdn.bytedance.com)
 - 隐藏`translation.json`文件
 - 推荐可用的[在线PHP密码生成器](https://uutool.cn/php-password)
