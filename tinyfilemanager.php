@@ -5,7 +5,6 @@ $CONFIG = '{"lang":"zh-CN","error_reporting":false,"show_hidden":false,"hide_Col
 /**
  * H3K | Tiny File Manager V2.5.3
  * @author CCP Programmers
- * @email ccpprogrammers@gmail.com
  * @github https://github.com/prasathmani/tinyfilemanager
  * @link https://tinyfilemanager.github.io
  */
@@ -101,7 +100,7 @@ $favicon_path = '';
 $exclude_items = array('translation.json');
 
 // Online office Docs Viewer
-// Availabe rules are 'google', 'microsoft' or false
+// Available rules are 'google', 'microsoft' or false
 // Google => View documents using Google Docs Viewer
 // Microsoft => View documents using Microsoft Web Apps Viewer
 // false => disable online doc viewer
@@ -608,7 +607,7 @@ if ((isset($_SESSION[FM_SESSION_ID]['logged'], $auth_users[$_SESSION[FM_SESSION_
         $use_curl = false;
         $temp_file = tempnam(sys_get_temp_dir(), "upload-");
         $fileinfo = new stdClass();
-        $fileinfo->name = trim(basename($url), ".\x00..\x20");
+        $fileinfo->name = trim(urldecode(basename($url)), ".\x00..\x20");
 
         $allowed = (FM_UPLOAD_EXTENSION) ? explode(',', FM_UPLOAD_EXTENSION) : false;
         $ext = strtolower(pathinfo($fileinfo->name, PATHINFO_EXTENSION));
@@ -1398,10 +1397,14 @@ if (isset($_GET['upload']) && !FM_READONLY) {
                         toast('Error: Server Timeout');
                     });
                 }).on("success", function (res) {
-                    let _response = JSON.parse(res.xhr.response);
+                    try {
+                        let _response = JSON.parse(res.xhr.response);
 
-                    if(_response.status == "error") {
-                        toast(_response.info);
+                        if(_response.status == "error") {
+                            toast(_response.info);
+                        }
+                    } catch (e) {
+                        toast("Error: Invalid JSON response");
                     }
                 }).on("error", function(file, response) {
                     toast(response);
@@ -2263,7 +2266,7 @@ function print_external($key) {
 }
 
 /**
- * Verify CSRF TOKEN and remove after cerify
+ * Verify CSRF TOKEN and remove after certified
  * @param string $token
  * @return bool
  */
@@ -2851,6 +2854,7 @@ function fm_get_file_icon_class($path)
         case 'map':
         case 'lock':
         case 'dtd':
+        case 'ps1':
             $img = 'fa fa-file-code-o';
             break;
         case 'txt':
@@ -2877,12 +2881,18 @@ function fm_get_file_icon_class($path)
             $img = 'fa fa-css3';
             break;
         case 'bz2':
+        case 'tbz2':
+        case 'tbz':
         case 'zip':
         case 'rar':
         case 'gz':
+        case 'tgz':
         case 'tar':
         case '7z':
         case 'xz':
+        case 'txz':
+        case 'zst':
+        case 'tzst':
             $img = 'fa fa-file-archive-o';
             break;
         case 'php':
@@ -3037,7 +3047,7 @@ function fm_get_text_exts()
         'eml', 'msg', 'csv', 'bat', 'twig', 'tpl', 'md', 'gitignore', 'less', 'sass', 'scss', 'c', 'cpp', 'cs', 'py', 'go', 'zsh', 'swift',
         'map', 'lock', 'dtd', 'svg', 'asp', 'aspx', 'asx', 'asmx', 'ashx', 'jsp', 'jspx', 'cgi', 'dockerfile', 'ruby', 'yml', 'yaml', 'toml',
         'vhost', 'scpt', 'applescript', 'csx', 'cshtml', 'c++', 'coffee', 'cfm', 'rb', 'graphql', 'mustache', 'jinja', 'http', 'handlebars',
-        'java', 'es', 'es6', 'markdown', 'wiki', 'tmp', 'top', 'bot', 'dat', 'bak', 'htpasswd', 'pl'
+        'java', 'es', 'es6', 'markdown', 'wiki', 'tmp', 'top', 'bot', 'dat', 'bak', 'htpasswd', 'pl', 'ps1'
     );
 }
 
@@ -4179,7 +4189,7 @@ $isStickyNavBar = $sticky_navbar ? 'navbar-fixed' : 'navbar-normal';
             if(_data && _data.fontSize) { $fontSizeEl.html(optionNode("", _data.fontSize)); }
             $modeEl.val( editor.getSession().$modeId );
             $themeEl.val( editor.getTheme() );
-            $fontSizeEl.val(12).change(); //set default font size in drop down
+            $(function() { $fontSizeEl.val(12).change(); }); //set default font size in drop down
         }
 
         $(function(){
@@ -4286,6 +4296,8 @@ function lng($txt) {
     $tr['en']['Invalid characters in file or folder name']      = 'Invalid characters in file or folder name';
     $tr['en']['Operations with archives are not available']     = 'Operations with archives are not available';
     $tr['en']['File or folder with this path already exists']   = 'File or folder with this path already exists';
+    $tr['en']['Are you sure want to rename?']                   = 'Are you sure want to rename?';
+    $tr['en']['Are you sure want to']                           = 'Are you sure want to';
 
     $i18n = fm_get_translations($tr);
     $tr = $i18n ? $i18n : $tr;
